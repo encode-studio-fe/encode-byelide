@@ -1,6 +1,6 @@
 import {
   setupDevtoolsPlugin
-} from "./chunk-KLYBMDCF.js";
+} from "./chunk-S5VXRB2X.js";
 import {
   computed,
   effectScope,
@@ -20,7 +20,7 @@ import {
   toRefs,
   unref,
   watch
-} from "./chunk-MFXDHSGI.js";
+} from "./chunk-JXYBJGD4.js";
 
 // node_modules/.pnpm/vue-demi@0.14.5_vue@3.3.4/node_modules/vue-demi/lib/index.mjs
 var isVue2 = false;
@@ -41,7 +41,7 @@ function del(target, key) {
   delete target[key];
 }
 
-// node_modules/.pnpm/pinia@2.1.3_typescript@5.0.4_vue@3.3.4/node_modules/pinia/dist/pinia.mjs
+// node_modules/.pnpm/pinia@2.1.4_typescript@5.1.6_vue@3.3.4/node_modules/pinia/dist/pinia.mjs
 var activePinia;
 var setActivePinia = (pinia) => activePinia = pinia;
 var getActivePinia = () => hasInjectionContext() && inject(piniaSymbol) || activePinia;
@@ -693,7 +693,6 @@ function addStoreToDevtools(app, store) {
         data: assign$1({ store: formatDisplay(store.$id) }, formatEventData(events)),
         groupId: activeAction
       };
-      activeAction = void 0;
       if (type === MutationType.patchFunction) {
         eventData.subtitle = "⤵️";
       } else if (type === MutationType.patchObject) {
@@ -751,7 +750,7 @@ function addStoreToDevtools(app, store) {
 }
 var runningActionId = 0;
 var activeAction;
-function patchActionForGrouping(store, actionNames) {
+function patchActionForGrouping(store, actionNames, wrapWithProxy) {
   const actions = actionNames.reduce((storeActions, actionName) => {
     storeActions[actionName] = toRaw(store)[actionName];
     return storeActions;
@@ -759,7 +758,7 @@ function patchActionForGrouping(store, actionNames) {
   for (const actionName in actions) {
     store[actionName] = function() {
       const _actionId = runningActionId;
-      const trackedStore = new Proxy(store, {
+      const trackedStore = wrapWithProxy ? new Proxy(store, {
         get(...args) {
           activeAction = _actionId;
           return Reflect.get(...args);
@@ -768,8 +767,11 @@ function patchActionForGrouping(store, actionNames) {
           activeAction = _actionId;
           return Reflect.set(...args);
         }
-      });
-      return actions[actionName].apply(trackedStore, arguments);
+      }) : store;
+      activeAction = _actionId;
+      const retValue = actions[actionName].apply(trackedStore, arguments);
+      activeAction = void 0;
+      return retValue;
     };
   }
 }
@@ -777,21 +779,13 @@ function devtoolsPlugin({ app, store, options }) {
   if (store.$id.startsWith("__hot:")) {
     return;
   }
-  if (options.state) {
-    store._isOptionsAPI = true;
-  }
-  if (typeof options.state === "function") {
-    patchActionForGrouping(
-      // @ts-expect-error: can cast the store...
-      store,
-      Object.keys(options.actions)
-    );
-    const originalHotUpdate = store._hotUpdate;
-    toRaw(store)._hotUpdate = function(newStore) {
-      originalHotUpdate.apply(this, arguments);
-      patchActionForGrouping(store, Object.keys(newStore._hmrPayload.actions));
-    };
-  }
+  store._isOptionsAPI = !!options.state;
+  patchActionForGrouping(store, Object.keys(options.actions), store._isOptionsAPI);
+  const originalHotUpdate = store._hotUpdate;
+  toRaw(store)._hotUpdate = function(newStore) {
+    originalHotUpdate.apply(this, arguments);
+    patchActionForGrouping(store, Object.keys(newStore._hmrPayload.actions), !!store._isOptionsAPI);
+  };
   addStoreToDevtools(
     app,
     // FIXME: is there a way to allow the assignment from Store<Id, S, G, A> to StoreGeneric?
@@ -1530,7 +1524,7 @@ export {
 
 pinia/dist/pinia.mjs:
   (*!
-    * pinia v2.1.3
+    * pinia v2.1.4
     * (c) 2023 Eduardo San Martin Morote
     * @license MIT
     *)
