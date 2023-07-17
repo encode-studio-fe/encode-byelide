@@ -35,7 +35,8 @@
     "pinia": "2.1.4",
     "vue": "3.3.4",
     "vue-router": "4.2.4",
-    "@icon-park/vue-next": "1.4.2"
+    "@icon-park/vue-next": "1.4.2",
+    "smooth-dnd": "0.12.1"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.7",
