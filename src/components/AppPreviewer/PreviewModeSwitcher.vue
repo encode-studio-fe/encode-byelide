@@ -32,7 +32,7 @@ const icons: { type: PreviewType; icon: Icon }[] = [
       <component
         :is="icon.icon"
         :size="20"
-        :fill="props.previewMode === icon.type ? 'var(--color-text)' : 'var(--color-gray-500)'"
+        :fill="props.previewMode === icon.type ? 'var(--color-black)' : 'var(--color-gray-500)'"
         @click="greet(icon.type)"
       />
     </div>
