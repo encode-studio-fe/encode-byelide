@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import DataSourceLeftPanel from '@/components/DataSourceLeftPanel.vue'
+</script>
 
 <template>
-  <div class="ds-wrapper">dataSource</div>
+  <div class="ds-wrapper">
+    <DataSourceLeftPanel />
+  </div>
 </template>
 
 <style scoped>
