@@ -1,3 +1,4 @@
+autoresize
 behaviour
 Byelide
 commitlint

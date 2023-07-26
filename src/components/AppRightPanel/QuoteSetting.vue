@@ -1,18 +1,27 @@
 <script setup lang="ts">
-import type { QuoteBlockInfo } from '@/types/block'
+import type { BlockInfo, QuoteBlockInfo } from '@/types/block'
 import { useField, useFieldArray, useForm } from 'vee-validate'
+import { watch } from 'vue'
 
 // 怎么传入 props，在这里如何定义？
 const props = defineProps<{
   blockInfo: QuoteBlockInfo
 }>()
 
-const emit = defineEmits(['change'])
+const emit = defineEmits<{ (event: 'change', block: BlockInfo): void }>()
 
-const { values, validate, defineInputBinds } = useForm()
+const { values, validate, defineInputBinds } = useForm({
+  initialValues: {
+    content: props.blockInfo.props.content
+  }
+})
 const { fields, push } = useFieldArray('blocks')
 
 const content = defineInputBinds('content')
+
+watch([values], ([newValues]) => {
+  emit('change', { ...props.blockInfo, props: { ...props.blockInfo.props, ...newValues } })
+})
 
 // const c = useField('content')
 </script>
@@ -24,7 +33,7 @@ const content = defineInputBinds('content')
   <!-- 你在使用 v-model，一定要注意，你的实际需求到底是不是需要 input 受控 -->
   <!-- 如果用 v-model，是受控组件 1，不是受控组件 2 -->
   <!-- <input class="content-input" :defaultValue="props.blockInfo.props.content" /> -->
-  <input class="content-input" v-bind="content" @change="emit('change', $event.target.value)" />
+  <input class="content-input" v-bind="content" />
 
   <input v-for="field in fields" :key="field.key" class="content-input" v-model="field.value" />
 

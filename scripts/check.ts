@@ -16,7 +16,7 @@ await $`pnpm spellcheck`.catch((out: ProcessOutput) => {
 // })
 
 // check type and stage
-await Promise.all([$`pnpm type-check`, $`pnpm lint:stage`]).catch((out: ProcessOutput) => {
+await Promise.all([$`pnpm type-check`, $`pnpm lint`]).catch((out: ProcessOutput) => {
   printObject(out)
   throw new Error(out.stdout)
 })
