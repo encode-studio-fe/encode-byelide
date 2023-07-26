@@ -45,6 +45,9 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
 
   return result
 }
+
+// 需要保证 blocksMap 在 BlockRenderer 之前被注入，并且我们暂时使用的 Symbol 作为 key
+// console.log(inject('blocksMap'))
 </script>
 
 <template>
@@ -58,7 +61,11 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
     <smooth-dnd-draggable v-for="(block, i) in blocks" :key="block.id">
       <div class="block-wrapper" @click.stop="selectBlock(block.id)">
         <!-- @vue-ignore -->
-        <component :is="$blocksMap[block.type].material" class="block" />
+        <component
+          :is="$blocksMap[block.type].material"
+          class="block"
+          :content="block.props?.content"
+        />
         <div
           :class="[
             'block-wrapper-indicator',

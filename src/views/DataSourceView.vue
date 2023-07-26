@@ -5,6 +5,7 @@ import DataSourceLeftPanel from '@/components/DataSourceLeftPanel.vue'
 <template>
   <div class="ds-wrapper">
     <DataSourceLeftPanel />
+    <RouterView />
   </div>
 </template>
 

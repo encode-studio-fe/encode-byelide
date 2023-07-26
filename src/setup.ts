@@ -31,6 +31,8 @@ const baseBlocks = [
     material: ImageBlock
   }
 ]
+// 因为我们后面会考虑插件市场，所以我们需要一个类来管理所有的 block
+// 只有你安装了对应的外部插件，你才能在页面中使用
 class BlockSuite {
   private blocks = baseBlocks
   constructor() {}
@@ -78,7 +80,9 @@ export const blocksMapSymbol = Symbol('blocksMap')
 export const setup = (app: App<Element>) => {
   const ins = {
     install(app: App<Element>) {
+      // 这两个操作基本上是 Vue3 视图相关插件的标配
       app.provide(blocksMapSymbol, blocksMap)
+      // provide 之后，我们就可以在任何地方使用 inject 来获取到这个值
       app.config.globalProperties.$blocksMap = blocksMap
     }
   }

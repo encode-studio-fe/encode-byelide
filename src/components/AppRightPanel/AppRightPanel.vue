@@ -3,6 +3,7 @@ import { blocks } from '@/mocks/blocks'
 import { blocksBaseMeta } from '@/constants/blocksBaseMeta'
 import { useAppEditorStore } from '@/stores/appEditor'
 import { computed } from 'vue'
+import QuoteSetting from './QuoteSetting.vue'
 
 const appEditorStore = useAppEditorStore()
 
@@ -25,7 +26,18 @@ const currentBlockInfo = computed(() => {
       <div class="app-right-panel-header">
         {{ blocksBaseMeta[currentBlockInfo.type].name }}
       </div>
-      <div class="app-right-panel-content">{{ currentBlockInfo.type }}</div>
+      <div class="app-right-panel-content">
+        <!-- 策略模式渲染？？？ 动态组件-->
+        <!-- <component :is="" /> -->
+        <QuoteSetting
+          :blockInfo="currentBlockInfo"
+          @change="(val) => appEditorStore.updateBlock(currentBlockInfo?.id, val)"
+        />
+        <!-- <div>
+          {{ currentBlockInfo.type }}
+        </div>
+        <input v-if="currentBlockInfo.type === 'quote'" :defaultValue="currentBlockInfo.label" /> -->
+      </div>
     </template>
   </div>
 </template>

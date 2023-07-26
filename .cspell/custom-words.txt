@@ -2,8 +2,10 @@ behaviour
 Byelide
 commitlint
 conventionalcommits
+glideapps
 optimizelegibility
 pinia
 tiptap
+veaury
 vuedraggable
 vuejs

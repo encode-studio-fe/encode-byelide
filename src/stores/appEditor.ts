@@ -14,5 +14,14 @@ export const useAppEditorStore = defineStore('appEditor', () => {
     blocks.value = newBlocks
   }
 
-  return { currentBlockId, blocks, selectBlock, updateBlocks }
+  function updateBlock(id: string, content?: string) {
+    blocks.value = blocks.value.map((block) => {
+      if (block.id === id) {
+        block.props.content = content
+      }
+      return block
+    })
+  }
+
+  return { currentBlockId, blocks, selectBlock, updateBlocks, updateBlock }
 })
