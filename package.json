@@ -46,7 +46,10 @@
     "@tiptap/starter-kit": "2.0.4",
     "veaury": "2.3.12",
     "@glideapps/glide-data-grid": "5.2.1",
-    "react": "18.2.0"
+    "react": "18.2.0",
+    "echarts": "5.4.3",
+    "vue-echarts": "6.6.0",
+    "@vueuse/core": "10.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.7",
