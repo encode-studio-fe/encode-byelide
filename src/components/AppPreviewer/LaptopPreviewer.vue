@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PreviewType } from './type'
 import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
-import BlockRenderer from '@/blocks/BlockRenderer.vue'
+import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
 import { ref } from 'vue'
 import { useFullscreen } from '@vueuse/core'
 const props = defineProps<{
@@ -39,7 +39,7 @@ function greet(mode: PreviewType) {
         <div class="layout-runner-content-title">Byelide</div>
       </div>
       <div class="layout-runner-content">
-        <BlockRenderer />
+        <BlocksRenderer />
       </div>
     </div>
   </div>
