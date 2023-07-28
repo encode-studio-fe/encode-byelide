@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { ref, toRaw } from 'vue'
-import { useAppEditorStore } from '@/stores/appEditor'
-import { smoothDnD, type DropResult, dropHandlers } from 'smooth-dnd'
 import { storeToRefs } from 'pinia'
-import { arrayMove } from '@/utils/array'
+import { dropHandlers,type DropResult, smoothDnD } from 'smooth-dnd'
+import { ref, toRaw } from 'vue'
 
 import { SmoothDndContainer } from '@/components/SmoothDnd/SmoothDndContainer'
 import { SmoothDndDraggable } from '@/components/SmoothDnd/SmoothDndDraggable'
+import { useAppEditorStore } from '@/stores/appEditor'
+import { arrayMove } from '@/utils/array'
+
 import BlockRenderer from './BlockRenderer.vue'
 
 smoothDnD.dropHandler = dropHandlers.reactDropHandler().handler

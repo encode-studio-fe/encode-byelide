@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import * as zrender from 'zrender'
 import { onMounted, ref } from 'vue'
+import * as zrender from 'zrender'
 
 var containerRef = ref<HTMLDivElement | null>(null)
 

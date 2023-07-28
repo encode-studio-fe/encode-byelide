@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { TextBold, TextItalic, Strikethrough } from '@icon-park/vue-next'
-import { useEditor, EditorContent } from '@tiptap/vue-3'
+import { Strikethrough,TextBold, TextItalic } from '@icon-park/vue-next'
 import StarterKit from '@tiptap/starter-kit'
+import { EditorContent,useEditor } from '@tiptap/vue-3'
+
 import { ColorHighlighter } from './extensions/ColorHighlighter'
 
 const editor = useEditor({

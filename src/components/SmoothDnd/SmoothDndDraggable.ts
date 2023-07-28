@@ -1,5 +1,6 @@
-import { defineComponent, h } from 'vue'
 import { constants } from 'smooth-dnd'
+import { defineComponent, h } from 'vue'
+
 import { getTagProps, validateTagProp } from './utils'
 
 export const SmoothDndDraggable = defineComponent({

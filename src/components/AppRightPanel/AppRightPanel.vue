@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import { blocks } from '@/mocks/blocks'
-import { blocksBaseMeta } from '@/constants/blocksBaseMeta'
-import { useAppEditorStore } from '@/stores/appEditor'
+import 'vue-json-pretty/lib/styles.css';
+
 import { computed } from 'vue'
-import QuoteSetting from './QuoteSetting.vue'
-import ChartSetting from './ChartSetting.vue'
+import VueJsonPretty from 'vue-json-pretty';
+
+import { blocksBaseMeta } from '@/constants/blocksBaseMeta'
+import { blocks } from '@/mocks/blocks'
+import { useAppEditorStore } from '@/stores/appEditor'
 import type { BlockInfo } from '@/types/block'
 
+import ChartSetting from './ChartSetting.vue'
+import QuoteSetting from './QuoteSetting.vue'
+
 const appEditorStore = useAppEditorStore()
+console.log('🚀 ~ file: AppRightPanel.vue:13 ~ appEditorStore:', appEditorStore)
 
 const blocksMap = computed(() => {
   return blocks.reduce<Record<string, (typeof blocks)[0]>>((acc, cur) => {

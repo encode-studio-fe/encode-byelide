@@ -1,5 +1,6 @@
-import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
+
 import { blocks as blocksData } from '@/mocks/blocks'
 import type { BlockInfo } from '@/types/block'
 

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { useEnvStore } from '@/stores/debug'
-import { Data, LayoutThree, Lightning, Share, Bug } from '@icon-park/vue-next'
+import { Bug,Data, LayoutThree, Lightning, Share } from '@icon-park/vue-next'
 import { computed, defineComponent, h } from 'vue'
 import { useRoute } from 'vue-router'
+
+import { useEnvStore } from '@/stores/debug'
 
 const linkItems = [
   {

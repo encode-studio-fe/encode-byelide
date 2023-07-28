@@ -1,5 +1,6 @@
-import { useAppEditorStore } from "@/stores/appEditor"
 import type { Ref } from "vue"
+
+import { useAppEditorStore } from "@/stores/appEditor"
 
 export const useClickOutside = (domRef: Ref<HTMLElement | null>) => {
   const appEditorStore = useAppEditorStore()

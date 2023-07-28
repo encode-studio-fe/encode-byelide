@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { blocksBaseMetaList } from '@/constants/blocksBaseMeta'
 import { SmoothDndContainer } from '@/components/SmoothDnd/SmoothDndContainer'
 import { SmoothDndDraggable } from '@/components/SmoothDnd/SmoothDndDraggable'
+import { blocksBaseMetaList } from '@/constants/blocksBaseMeta'
 </script>
 
 <template>

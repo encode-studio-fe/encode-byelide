@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import LaptopPreviewer from './LaptopPreviewer.vue'
 import MobilePreviewer from './MobilePreviewer.vue'
 import type { PreviewType } from './type'

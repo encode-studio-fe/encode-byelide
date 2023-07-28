@@ -1,7 +1,7 @@
-import { useRef, useEffect, useState } from 'react'
 import '@glideapps/glide-data-grid/dist/index.css'
 
 import { DataEditor, GridCellKind, GridColumnIcon } from '@glideapps/glide-data-grid'
+import { useEffect, useRef, useState } from 'react'
 
 const tempDataList = new Array(100_0000).fill(0)
 

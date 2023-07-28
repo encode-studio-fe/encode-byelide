@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { Page, SmartOptimization } from '@icon-park/vue-next'
-import OutlineDrawer from '@/components/AppLeftPanel/OutlineDrawer.vue'
+import { ref } from 'vue'
+
 import BlocksDrawer from '@/components/AppLeftPanel/BlocksDrawer.vue'
+import OutlineDrawer from '@/components/AppLeftPanel/OutlineDrawer.vue'
 
 type DrawerMode = 'outline' | 'blocks' | null
 

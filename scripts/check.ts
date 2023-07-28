@@ -2,6 +2,7 @@
 
 import type { ProcessOutput } from 'zx'
 import { $ } from 'zx'
+
 import { printObject } from './utils'
 
 await $`pnpm spellcheck`.catch((out: ProcessOutput) => {

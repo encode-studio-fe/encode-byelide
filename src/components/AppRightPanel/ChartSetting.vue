@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type { ChartBlockInfo, ChartType } from '@/types/block'
 import { useForm } from 'vee-validate'
 import { watch } from 'vue'
+
+import type { ChartBlockInfo, ChartType } from '@/types/block'
 import SegmentedControl from '@/ui/SegmentedControl/SegmentedControl.vue'
 
 // 怎么传入 props，在这里如何定义？

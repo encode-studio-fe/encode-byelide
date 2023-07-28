@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type { QuoteBlockInfo } from '@/types/block'
 import { useFieldArray, useForm } from 'vee-validate'
 import { watch } from 'vue'
+
+import type { QuoteBlockInfo } from '@/types/block'
 
 // 怎么传入 props，在这里如何定义？
 const props = defineProps<{

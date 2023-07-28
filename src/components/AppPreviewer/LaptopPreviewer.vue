@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import type { PreviewType } from './type'
-import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
-import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
-import { ref } from 'vue'
 import { useFullscreen } from '@vueuse/core'
+import { ref } from 'vue'
+
+import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
+
+import PreviewModeSwitcher from './PreviewModeSwitcher.vue'
+import type { PreviewType } from './type'
 const props = defineProps<{
   previewMode?: PreviewType
 }>()

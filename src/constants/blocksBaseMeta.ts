@@ -1,15 +1,15 @@
-import type { BlockType } from '@/types/block'
 import {
   ChartLine,
   Form,
   HamburgerButton,
+  ImageFiles,
   Notes,
   Quote,
   Table,
-  TitleLevel,
-  ImageFiles
-} from '@icon-park/vue-next'
+  TitleLevel} from '@icon-park/vue-next'
 import type { Icon } from '@icon-park/vue-next/lib/runtime'
+
+import type { BlockType } from '@/types/block'
 
 export const blocksBaseMetaList: { type: BlockType; name: string; icon: Icon }[] = [
   {

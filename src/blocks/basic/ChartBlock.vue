@@ -5,7 +5,6 @@ import type { ChartBlockInfo } from '@/types/block'
 defineProps<{
   blockInfo: ChartBlockInfo
 }>()
-
 </script>
 
 <template>

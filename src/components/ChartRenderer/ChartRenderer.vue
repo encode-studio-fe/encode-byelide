@@ -3,11 +3,13 @@
 </template>
 
 <script setup lang="ts">
-import EchartsRenderer from './EchartsRenderer/EchartsRenderer.vue'
-import CanvasChartRenderer from './CanvasChartRenderer/CanvasChartRenderer.vue'
-import SVGChartRenderer from './SVGChartRenderer/SVGChartRenderer.vue'
 import { computed } from 'vue'
+
 import type { ChartBlockInfo } from '@/types/block'
+
+import CanvasChartRenderer from './CanvasChartRenderer/CanvasChartRenderer.vue'
+import EchartsRenderer from './EchartsRenderer/EchartsRenderer.vue'
+import SVGChartRenderer from './SVGChartRenderer/SVGChartRenderer.vue'
 
 const props = defineProps<{
   blockInfo: ChartBlockInfo

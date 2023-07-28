@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+
 import { blocksBaseMeta } from '@/constants/blocksBaseMeta'
 import { useAppEditorStore } from '@/stores/appEditor'
-import { storeToRefs } from 'pinia'
 
 const appEditorStore = useAppEditorStore()
 const { blocks } = storeToRefs(appEditorStore)

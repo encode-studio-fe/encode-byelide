@@ -1,13 +1,14 @@
-import type { BlockType } from '@/types/block'
-import QuoteBlock from '@/blocks/basic/QuoteBlock.vue'
-import HeroTitleBlock from '@/blocks/basic/HeroTitleBlock.vue'
-import ViewBlock from '@/blocks/basic/ViewBlock.vue'
+import type { App } from 'vue'
+
 import ChartBlock from '@/blocks/basic/ChartBlock.vue'
+import HeroTitleBlock from '@/blocks/basic/HeroTitleBlock.vue'
 import ImageBlock from '@/blocks/basic/ImageBlock.vue'
+import QuoteBlock from '@/blocks/basic/QuoteBlock.vue'
+import ViewBlock from '@/blocks/basic/ViewBlock.vue'
 import ButtonBlock from '@/blocks/external/ButtonBlock.vue'
 import FormBlock from '@/blocks/external/FormBlock.vue'
 import NotesBlock from '@/blocks/external/NotesBlock.vue'
-import type { App } from 'vue'
+import type { BlockType } from '@/types/block'
 
 const baseBlocks = [
   {

@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { Delete,Drag } from '@icon-park/vue-next'
+import { dropHandlers,smoothDnD } from 'smooth-dnd'
 import { ref } from 'vue'
-import { Drag, Delete } from '@icon-park/vue-next'
-import { useEnvStore } from '@/stores/debug'
+
 import { useAppEditorStore } from '@/stores/appEditor'
-import { smoothDnD, dropHandlers } from 'smooth-dnd'
+import { useEnvStore } from '@/stores/debug'
 // import { useClickOutside } from '@/hooks/useClickOutside'
 
 const p = defineProps<{
@@ -12,6 +13,7 @@ const p = defineProps<{
 }>()
 
 import { storeToRefs } from 'pinia'
+
 import type { BlockInfo } from '@/types/block'
 
 smoothDnD.dropHandler = dropHandlers.reactDropHandler().handler

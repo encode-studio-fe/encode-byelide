@@ -3,18 +3,17 @@
 </template>
 
 <script setup lang="ts">
-import { use, graphic } from 'echarts/core'
-import { CanvasRenderer } from 'echarts/renderers'
 import { LineChart } from 'echarts/charts'
 import {
-  TitleComponent,
-  TooltipComponent,
+  GridComponent,
   LegendComponent,
+  TitleComponent,
   ToolboxComponent,
-  GridComponent
-} from 'echarts/components'
+  TooltipComponent} from 'echarts/components'
+import { graphic,use } from 'echarts/core'
+import { CanvasRenderer } from 'echarts/renderers'
+import { provide,ref } from 'vue'
 import VChart, { THEME_KEY } from 'vue-echarts'
-import { ref, provide } from 'vue'
 
 use([
   CanvasRenderer,

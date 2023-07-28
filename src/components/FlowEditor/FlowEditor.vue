@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { Panel, VueFlow, isNode, useVueFlow } from '@vue-flow/core'
-import { Background, Controls, MiniMap } from '@vue-flow/additional-components'
-import { Resting, Shuffle, Log } from '@icon-park/vue-next'
-import { ref } from 'vue'
-import { initialElements } from './initial-elements'
-
 import '@vue-flow/core/dist/style.css'
 import '@vue-flow/core/dist/theme-default.css'
+
+import { Log,Resting, Shuffle } from '@icon-park/vue-next'
+import { Background, Controls, MiniMap } from '@vue-flow/additional-components'
+import { isNode, Panel, useVueFlow,VueFlow } from '@vue-flow/core'
+import { ref } from 'vue'
+
+import { initialElements } from './initial-elements'
 
 /**
  * useVueFlow provides all event handlers and store properties
