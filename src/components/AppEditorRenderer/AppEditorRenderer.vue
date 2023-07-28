@@ -14,18 +14,13 @@ const handleModeChange = (mode: PreviewType) => {
 
 <template>
   <div class="layout-content">
-    <LaptopPreviewer
-      v-if="previewMode === 'laptop'"
-      :key="'laptop'"
-      :preview-mode="previewMode"
-      @preview-mode-change="handleModeChange"
-    />
-    <MobilePreviewer
-      v-if="previewMode === 'mobile'"
-      :key="'mobile'"
-      :preview-mode="previewMode"
-      @preview-mode-change="handleModeChange"
-    />
+    <KeepAlive>
+      <component
+        :is="previewMode === 'laptop' ? LaptopPreviewer : MobilePreviewer"
+        :preview-mode="previewMode"
+        @preview-mode-change="handleModeChange"
+      />
+    </KeepAlive>
   </div>
 </template>
 

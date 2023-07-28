@@ -9,5 +9,12 @@
       "addWords": true
     }
   ],
-  "ignorePaths": ["**/node_modules/**", "**/dist/**", "**/lib/**", "**/docs/**", "**/stats.html"]
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/lib/**",
+    "**/docs/**",
+    "**/stats.html",
+    "**/detect.ts"
+  ]
 }

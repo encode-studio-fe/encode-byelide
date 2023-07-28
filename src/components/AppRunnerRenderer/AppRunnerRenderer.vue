@@ -1,17 +1,43 @@
 <script setup lang="ts">
-import BlocksRenderer from '@/blocks/BlocksRenderer.vue'
+import { onMounted, onUnmounted, provide, ref } from 'vue'
+
+import { isMobileTablet } from '@/utils/detect'
+
+import LaptopPreviewer from '../AppPreviewer/LaptopPreviewer.vue'
+import MobilePreviewer from '../AppPreviewer/MobilePreviewer.vue'
+
+provide('editable', false)
+
+const device = ref<'laptop' | 'mobile'>('laptop')
+
+const resize = () => {
+  const isMobile = isMobileTablet()
+
+  if (isMobile) {
+    device.value = 'mobile'
+  } else {
+    device.value = 'laptop'
+  }
+}
+
+onMounted(() => {
+  const isMobile = isMobileTablet()
+
+  if (isMobile) {
+    device.value = 'mobile'
+  }
+
+  window.addEventListener('resize', resize, false)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', resize, false)
+})
 </script>
 
 <template>
-  <div class="layout-runner-content-wrapper tiny-scrollbar">
-    <div class="layout-runner-content-header">
-      <div class="layout-runner-content-navigator"></div>
-      <div class="layout-runner-content-title">Byelide</div>
-    </div>
-    <div class="layout-runner-content">
-      <BlocksRenderer />
-    </div>
-  </div>
+  <LaptopPreviewer v-if="device === 'laptop'" />
+  <MobilePreviewer v-if="device === 'mobile'" />
 </template>
 
 <style scoped>
