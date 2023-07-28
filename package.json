@@ -52,7 +52,9 @@
     "vue-echarts": "6.6.0",
     "@vueuse/core": "10.2.1",
     "zrender": "5.4.4",
-    "d3": "7.8.5"
+    "d3": "7.8.5",
+    "vue-json-pretty": "2.2.4",
+    "copy-text-to-clipboard": "3.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.7",

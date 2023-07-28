@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import 'vue-json-pretty/lib/styles.css';
+import 'vue-json-pretty/lib/styles.css'
 
 import { computed } from 'vue'
-import VueJsonPretty from 'vue-json-pretty';
 
 import { blocksBaseMeta } from '@/constants/blocksBaseMeta'
-import { blocks } from '@/mocks/blocks'
 import { useAppEditorStore } from '@/stores/appEditor'
 import type { BlockInfo } from '@/types/block'
 
 import ChartSetting from './ChartSetting.vue'
 import QuoteSetting from './QuoteSetting.vue'
+import SchemaExporter from './SchemaExporter.vue'
 
 const appEditorStore = useAppEditorStore()
-console.log('🚀 ~ file: AppRightPanel.vue:13 ~ appEditorStore:', appEditorStore)
 
 const blocksMap = computed(() => {
+  const { blocks } = appEditorStore
   return blocks.reduce<Record<string, (typeof blocks)[0]>>((acc, cur) => {
     acc[cur.id] = cur
     return acc
@@ -54,6 +53,7 @@ const blockSetting = computed(() => {
           :blockInfo="currentBlockInfo"
           @change="(block: BlockInfo) => appEditorStore.updateBlock(block.id, block)"
         />
+        <SchemaExporter :currentBlockInfo="currentBlockInfo" />
         <!-- <QuoteSetting
           :blockInfo="currentBlockInfo"
           @change="(val) => appEditorStore.updateBlock(currentBlockInfo?.id, val)"
@@ -86,5 +86,8 @@ const blockSetting = computed(() => {
 
 .app-right-panel-content {
   padding: 0 16px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 </style>

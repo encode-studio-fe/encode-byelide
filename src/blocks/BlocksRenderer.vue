@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { dropHandlers,type DropResult, smoothDnD } from 'smooth-dnd'
-import { ref, toRaw } from 'vue'
+import { dropHandlers, type DropResult, smoothDnD } from 'smooth-dnd'
+import { toRaw } from 'vue'
 
 import { SmoothDndContainer } from '@/components/SmoothDnd/SmoothDndContainer'
 import { SmoothDndDraggable } from '@/components/SmoothDnd/SmoothDndDraggable'

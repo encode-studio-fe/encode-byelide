@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { Delete,Drag } from '@icon-park/vue-next'
-import { dropHandlers,smoothDnD } from 'smooth-dnd'
+import { Delete, Drag } from '@icon-park/vue-next'
+import { dropHandlers, smoothDnD } from 'smooth-dnd'
 import { ref } from 'vue'
 
 import { useAppEditorStore } from '@/stores/appEditor'
 import { useEnvStore } from '@/stores/debug'
+
 // import { useClickOutside } from '@/hooks/useClickOutside'
 
-const p = defineProps<{
+defineProps<{
   block: BlockInfo
   i: number
 }>()
