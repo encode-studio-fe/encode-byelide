@@ -8,6 +8,7 @@ export const useAppEditorStore = defineStore('appEditor', () => {
   const currentBlockId = ref<string | null>(null)
   const blocks = ref(blocksData)
 
+
   function selectBlock(id: string) {
     currentBlockId.value = id
   }
@@ -17,12 +18,18 @@ export const useAppEditorStore = defineStore('appEditor', () => {
   }
 
   function updateBlock(id: string, newBlock: BlockInfo) {
-    blocks.value = blocks.value.map((block) => {
+    // blocks.value = blocks.value.map((block) => {
+    //   if (block.id === id) {
+    //     return newBlock
+    //   }
+    //   return block
+    // })
+    for (const block of blocks.value) {
       if (block.id === id) {
-        return newBlock
+        Object.assign(block, newBlock)
+        break
       }
-      return block
-    })
+    }
   }
 
   return { currentBlockId, blocks, selectBlock, updateBlocks, updateBlock }
