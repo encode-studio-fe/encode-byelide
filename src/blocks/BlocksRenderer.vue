@@ -54,6 +54,7 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
     group-name="blocks"
     orientation="vertical"
     tag="div"
+    class="renderer-dnd-container"
     @drop="updateBlocks(applyDrag(toRaw(blocks), $event))"
   >
     <smooth-dnd-draggable v-for="(block, i) in blocks" :key="block.id">
@@ -63,6 +64,9 @@ const applyDrag = <T extends any[]>(arr: T, dragResult: DropResult) => {
 </template>
 
 <style scoped>
+.renderer-dnd-container {
+  width: 100%;
+}
 .block-wrapper {
   position: relative;
   display: flex;

@@ -1,5 +1,5 @@
 import type { SmoothDnD } from 'smooth-dnd'
-import { dropHandlers,smoothDnD } from 'smooth-dnd'
+import { dropHandlers, smoothDnD } from 'smooth-dnd'
 import { defineComponent, h } from 'vue'
 
 import { getTagProps, validateTagProp } from './utils'
