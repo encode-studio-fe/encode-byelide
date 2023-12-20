@@ -1,5 +1,5 @@
 <template>
-  <v-chart class="chart" :option="option" autoresize />
+  <v-chart class="chart" :option="option" ref="chartInstance" />
 </template>
 
 <script setup lang="ts">
@@ -9,10 +9,11 @@ import {
   LegendComponent,
   TitleComponent,
   ToolboxComponent,
-  TooltipComponent} from 'echarts/components'
-import { graphic,use } from 'echarts/core'
+  TooltipComponent
+} from 'echarts/components'
+import { graphic, use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
-import { provide,ref } from 'vue'
+import { onMounted, provide, ref } from 'vue'
 import VChart, { THEME_KEY } from 'vue-echarts'
 
 use([
@@ -208,6 +209,19 @@ const option = ref({
       data: [220, 302, 181, 234, 210, 290, 150]
     }
   ]
+})
+
+const chartInstance = ref<InstanceType<typeof VChart>>()
+
+onMounted(() => {
+  const resizeHandler = () => {
+    chartInstance.value?.resize()
+  }
+  window.addEventListener('resize', resizeHandler)
+
+  return () => {
+    window.removeEventListener('resize', resizeHandler)
+  }
 })
 </script>
 

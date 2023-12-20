@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useFullscreen } from '@vueuse/core'
 import { ref } from 'vue'
 
 import AppMobilePreviewer from '../AppPreviewer/MobilePreviewer.vue'
@@ -11,8 +10,6 @@ const props = defineProps<{
   previewMode?: PreviewType
 }>()
 const runner = ref<HTMLElement | null>(null)
-
-const { toggle } = useFullscreen(runner)
 
 const emit = defineEmits<{
   'preview-mode-change': [mode: PreviewType]
@@ -26,11 +23,7 @@ function greet(mode: PreviewType) {
 <template>
   <div class="layout-runner" ref="runner">
     <div class="layout-runner-navigator">
-      <PreviewModeSwitcher
-        :preview-mode="props.previewMode"
-        @preview-mode-change="greet"
-        @full-screen="toggle"
-      />
+      <PreviewModeSwitcher :preview-mode="props.previewMode" @preview-mode-change="greet" />
     </div>
     <div class="simulator-wrapper">
       <div class="simulator-header">
